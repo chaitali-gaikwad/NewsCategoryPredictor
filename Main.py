@@ -400,4 +400,4 @@ iface = gr.Interface(
     description="Enter news text to predict its category."
 )
 
-iface.launch(debug=True, share=True)
+iface.launch(debug=True, share=True) 
