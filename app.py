@@ -4,8 +4,8 @@ import pandas as pd
 import joblib
 import re
 import string
-from nltk.corpus import stopwords
 import regex
+from nltk.corpus import stopwords
 
 # Load the trained model and label encoder
 model = joblib.load('best_model.pkl')
@@ -31,19 +31,29 @@ def predict_news_category(text):
     return predicted_label
 
 # Streamlit UI
-st.title("News Category Prediction")
+st.set_page_config(page_title="News Category Prediction", layout="wide")
+
+# Title
+st.title("📰 News Category Prediction")
+
+# Information section
+st.markdown("""
+### How to Use
+1. Paste or type the news article content in the text area below.
+2. Click the **Predict** button.
+3. The predicted news category will be displayed.
+""")
 
 # Text input for the user
-input_text = st.text_area("Enter news text to predict its category.", height=200)
+input_text = st.text_area("Enter news text below to predict its category.", height=200, placeholder="Type or paste your news content here...")
 
 # Button to trigger prediction
-if st.button("Predict"):
+if st.button("Predict", key="predict_button"):
     if input_text:
         predicted_category = predict_news_category(input_text)
         st.success(f"The predicted category is: **{predicted_category}**")
     else:
         st.error("Please enter some text.")
 
-# Optionally add a footer
+# Footer section
 st.markdown("---")
-# st.write("This app predicts the category of news articles based on the content.")
