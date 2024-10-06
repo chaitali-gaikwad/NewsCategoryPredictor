@@ -36,6 +36,7 @@ st.set_page_config(page_title="News Category Prediction", layout="wide")
 # Title
 st.title("📰 News Category Prediction")
 
+
 # Information section
 st.markdown("""
 ### How to Use
