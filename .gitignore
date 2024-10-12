@@ -1,2 +1,6 @@
 
 *.pkl
+app.py
+requirements.txt
+requirements1.txt
+train_model.py
